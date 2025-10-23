@@ -1,0 +1,16 @@
+type Message {
+    uuid: ID!
+    convestionId: ID!
+    senderId: ID!
+    receiverId: ID!
+    message: String!
+    sentAt: String!
+    readAt: String!
+    isRead: Boolean!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+
+}

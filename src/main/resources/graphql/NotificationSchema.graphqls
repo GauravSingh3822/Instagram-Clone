@@ -1,0 +1,17 @@
+type Notifications {
+    uuid: ID!
+    userId: ID!
+    postId: ID!
+    notificationType: String!
+    message: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+
+}

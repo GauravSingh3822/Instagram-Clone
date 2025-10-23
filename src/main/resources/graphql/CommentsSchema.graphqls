@@ -1,0 +1,13 @@
+type Comments{
+    uuid: ID!
+    userId: ID!
+    postId: ID!
+    comment: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    replies: Int!
+    repliesCount: Int!
+    likesCount: Int!
+}

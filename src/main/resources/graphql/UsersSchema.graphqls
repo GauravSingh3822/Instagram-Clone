@@ -1,0 +1,18 @@
+type UserEntity {
+    id: ID!
+    userName: String!
+    email: String!
+    fullName: String!
+    bio: String
+    profileImageUrl: String
+    coverImageUrl: String
+    website: String
+    location: String
+    gender: String
+    dob: String
+    createdAt: String
+    updatedAt: String
+    isPrivate: Boolean
+    roles: String
+    posts: [Posts]
+}

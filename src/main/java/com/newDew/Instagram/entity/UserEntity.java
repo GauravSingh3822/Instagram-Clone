@@ -1,25 +1,23 @@
 package com.newDew.Instagram.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import org.springframework.graphql.data.federation.EntityMapping;
+import jakarta.persistence.*;
+import lombok.*;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 @Builder
 @Table(name = "users")
 public class UserEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     private String userName;
     private String email;
@@ -28,10 +26,16 @@ public class UserEntity {
     private String bio;
     private String profileImageUrl;
     private String coverImageUrl;
+    private String location;
+    private String website;
+    private String gender;
+    private Date dob;
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private Boolean isPrivate;
     private String roles;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Posts> posts;
 
 

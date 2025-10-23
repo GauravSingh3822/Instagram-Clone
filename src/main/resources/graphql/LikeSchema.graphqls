@@ -1,0 +1,15 @@
+type Likes {
+    uuid: ID!
+    postId: ID!
+    userId: ID!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+
+}
