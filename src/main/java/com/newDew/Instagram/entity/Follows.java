@@ -3,15 +3,16 @@ package com.newDew.Instagram.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.UUID;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 @Builder
 @Table(name = "Follows")
 public class Follows {
