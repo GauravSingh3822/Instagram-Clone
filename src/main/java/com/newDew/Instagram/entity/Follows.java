@@ -23,6 +23,7 @@ public class Follows {
     private String caption;
     private Timestamp createdAt;
     private Timestamp updatedAt;
+    
     private Enum status;
 
 }
