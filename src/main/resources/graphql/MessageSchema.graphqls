@@ -14,3 +14,42 @@ type Message {
     isBookmarked: Boolean!
 
 }
+type MessageResponse{
+
+    convestionId: ID!
+    senderId: ID!
+    receiverId: ID!
+    message: String!
+    sentAt: String!
+    readAt: String!
+    isRead: Boolean!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+input MessageInput{
+    convestionId: ID!
+    senderId: ID!
+    receiverId: ID!
+    message: String!
+    sentAt: String!
+    readAt: String!
+    isRead: Boolean!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+extend type Query{
+    getMessageById(uuid: ID!): Message
+    getAllMessages: [Message]
+    getMessagesByConvesionId(convesionId: ID!): [Message]
+}
+extend type Mutation{
+    createMessage(input: MessageInput!): MessageResponse
+    updateMessage(uuid: ID!, input: MessageInput!): MessageResponse
+    deleteMessage(uuid: ID!): MessageResponse
+}

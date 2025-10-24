@@ -15,3 +15,43 @@ type Notifications {
     isBookmarked: Boolean!
 
 }
+type NotificationResponse{
+
+    userId: ID!
+    postId: ID!
+    notificationType: String!
+    message: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+input NotificationInput{
+    postId: ID!
+    notificationType: String!
+    message: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+extend type Query{
+    getNotificationById(uuid: ID!): Notifications
+    getAllNotifications: [Notifications]
+    getNotificationsByUserId(userId: ID!): [Notifications]
+}
+extend type Mutation{
+    createNotification(input: NotificationInput!): NotificationResponse
+    updateNotification(uuid: ID!, input: NotificationInput!): NotificationResponse
+    deleteNotification(uuid: ID!): NotificationResponse
+}

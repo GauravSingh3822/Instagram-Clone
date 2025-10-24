@@ -16,3 +16,53 @@ type Posts {
     isBookmarked: Boolean
     user: UserEntity!    # Relation: Each post belongs to one user
 }
+
+type PostResponse{
+    id: ID!
+    title: String
+    content: String
+    image: String
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
+    isDeleted: Boolean
+    likesCount: Int
+    commentsCount: Int
+    isArchived: Boolean
+    isReported: Boolean
+    isSaved: Boolean
+    isLiked: Boolean
+    isBookmarked: Boolean
+    user: UserEntity!
+}
+
+input PostInput{
+    title: String
+    content: String
+    image: String
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
+    isDeleted: Boolean
+    likesCount: Int
+    commentsCount: Int
+    isArchived: Boolean
+    isReported: Boolean
+    isSaved: Boolean
+    isLiked: Boolean
+    isBookmarked: Boolean
+
+}
+# use 'extend' for Query and Mutation
+extend type Query{
+    getPostById(id: ID!): Posts
+    getAllPosts: [Posts]
+    getPostsByUserId(userId: ID!): [Posts]
+}
+
+
+extend type Mutation{
+    createPost(input: PostInput!): PostResponse
+    updatePost(id: ID!, input: PostInput!): PostResponse
+    deletePost(id: ID!): PostResponse
+}
