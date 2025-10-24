@@ -1,8 +1,8 @@
 package com.newDew.Instagram.service.impl;
 
-import com.newDew.Instagram.service.CommnetsService;
+import com.newDew.Instagram.service.CommentsService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CommnetsServiceImpl implements CommnetsService {
+public class CommnetsServiceImpl implements CommentsService {
 }
