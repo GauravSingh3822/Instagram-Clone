@@ -1,4 +1,4 @@
 package com.newDew.Instagram.service;
 
-public interface ConservationService {
+public interface ConservationsService {
 }
