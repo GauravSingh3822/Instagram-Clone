@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: ${APP_NAME}
+  profiles:
+    active: dev
+
+server:
+  port: ${APP_PORT}
+  servlet:
+    context-path: ${APP_URL}
+
+build:
+  version: ${APP_VERSION}
+  build-time: ${APP_BUILD_TIME}
+  build-number: ${APP_BUILD_NUMBER}
+  build-type: ${APP_BUILD_TYPE}
+  build-host: ${APP_BUILD_HOST}
+  commit-id: ${APP_COMMIT_ID}
+  branch: ${APP_BRANCH}
