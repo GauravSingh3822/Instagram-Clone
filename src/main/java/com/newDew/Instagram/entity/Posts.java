@@ -43,7 +43,7 @@ public class Posts {
     private String content;
 
     @Pattern(
-            regexp = "^(http(s?):)([/|.|\\w|\\s|-])*\\.(?:jpg|gif|png)$",
+            regexp = "^https?:\\/\\/[^\\s]+?\\.(jpg|gif|png)$",
             message = "Invalid image URL format (must end with .jpg, .png, or .gif)"
     )
     @Column(name = "image")
@@ -67,11 +67,11 @@ public class Posts {
 
     @Min(value = 0, message = "Likes count cannot be negative")
     @Column(name = "likes_count")
-    private int likesCount = 0;
+    private int likesCount;
 
     @Min(value = 0, message = "Comments count cannot be negative")
     @Column(name = "comments_count")
-    private int commentsCount = 0;
+    private int commentsCount;
 
     @Column(name = "is_archived")
     private Boolean isArchived = false;

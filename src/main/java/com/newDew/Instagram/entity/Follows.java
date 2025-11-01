@@ -1,8 +1,6 @@
 package com.newDew.Instagram.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Timestamp;
@@ -23,7 +21,8 @@ public class Follows {
     private String caption;
     private Timestamp createdAt;
     private Timestamp updatedAt;
-    
-    private Enum status;
+
+    @Enumerated(EnumType.STRING)
+    private FollowsEnum status;
 
 }
