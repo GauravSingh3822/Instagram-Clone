@@ -21,7 +21,7 @@ public class Message {
     private UUID convestionId;
     private UUID senderId;
     private UUID receiverId;
-    private String message;
+    private String text;
     private Timestamp sentAt;
     private Timestamp readAt;
     private Boolean isRead;
