@@ -1,0 +1,48 @@
+type Comments{
+    uuid: ID!
+    userId: ID!
+    postId: ID!
+    comment: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    replies: Int!
+    repliesCount: Int!
+    likesCount: Int!
+}
+type CommentResponse{
+    userId: ID!
+    postId: ID!
+    comment: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    replies: Int!
+    repliesCount: Int!
+    likesCount: Int!
+}
+input CommentInput{
+    userId: ID!
+    postId: ID!
+    comment: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    replies: Int!
+    repliesCount: Int!
+    likesCount: Int!
+}
+extend type Query{
+    getCommentById(uuid: ID!): Comments
+    getAllComments: [Comments]
+    getCommentsByPostId(postId: ID!): [Comments]
+    getCommentsByUserId(userId: ID!): [Comments]
+}
+extend type Mutation{
+    createComment(input: CommentInput!): CommentResponse
+    updateComment(uuid: ID!, input: CommentInput!): CommentResponse
+    deleteComment(uuid: ID!): CommentResponse
+}

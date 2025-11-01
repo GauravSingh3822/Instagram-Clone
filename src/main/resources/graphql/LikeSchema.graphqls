@@ -1,0 +1,55 @@
+type Likes {
+    uuid: ID!
+    postId: ID!
+    userId: ID!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+
+}
+type LikeResponse{
+
+    postId: ID!
+    userId: ID!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+input LikeInput{
+
+    postId: ID!
+    userId: ID!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+
+extend type Query{
+    getLikeById(uuid: ID!): Likes
+    getAllLikes: [Likes]
+    getLikesByPostId(postId: ID!): [Likes]
+    getLikesByUserId(userId: ID!): [Likes]
+}
+extend type Mutation{
+    createLike(input: LikeInput!): LikeResponse
+    updateLike(uuid: ID!, input: LikeInput!): LikeResponse
+    deleteLike(uuid: ID!): LikeResponse
+}

@@ -1,0 +1,56 @@
+type PostMedia {
+    uuid: ID!
+    postId: ID!
+    mediaUrl: String!
+    mediaType: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+
+}
+
+input PostMediaInput{
+
+    mediaUrl: String!
+    mediaType: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+
+type PostMediaResponse{
+    postId: ID!
+    mediaUrl: String!
+    mediaType: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+extend type Query{
+    getPostMediaById(uuid: ID!): PostMedia
+    getAllPostMedia: [PostMedia]
+    getPostMediaByPostId(postId: ID!): [PostMedia]
+}
+extend type Mutation{
+    createPostMedia(input: PostMediaInput!): PostMediaResponse
+    updatePostMedia(uuid: ID!, input: PostMediaInput!): PostMediaResponse
+    deletePostMedia(uuid: ID!): PostMediaResponse
+}

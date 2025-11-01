@@ -1,0 +1,48 @@
+type Follows {
+    uuid: ID!
+    followerId: ID!
+    followingId: ID!
+    caption: String!
+    createdAt: String!
+}
+type FollowsResponse{
+
+    followerId: ID!
+    followingId: ID!
+    caption: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+input FollowsInput{
+
+    followerId: ID!
+    followingId: ID!
+    caption: String!
+    createdAt: String!
+    updatedAt: String!
+    deletedAt: String!
+    isDeleted: Boolean!
+    isArchived: Boolean!
+    isReported: Boolean!
+    isSaved: Boolean!
+    isLiked: Boolean!
+    isBookmarked: Boolean!
+}
+extend type Query{
+    getFollowById(uuid: ID!): Follows
+    getAllFollows: [Follows]
+    getFollowsByFollowerId(followerId: ID!): [Follows]
+    getFollowsByFollowingId(followingId: ID!): [Follows]
+}
+extend type Mutation{
+    createFollow(input: FollowsInput!): FollowsResponse
+    updateFollow(uuid: ID!, input: FollowsInput!): FollowsResponse
+    deleteFollow(uuid: ID!): FollowsResponse
+}

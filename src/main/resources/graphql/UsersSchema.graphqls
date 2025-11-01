@@ -1,0 +1,54 @@
+type UserEntity {
+    id: ID!
+    userName: String!
+    email: String!
+    fullName: String!
+    bio: String
+    profileImageUrl: String
+    coverImageUrl: String
+    website: String
+    location: String
+    gender: String
+    dob: String
+    createdAt: String
+    updatedAt: String
+    isPrivate: Boolean
+    roles: String
+    posts: [Posts]
+
+}
+
+input UserInput{
+    userName: String!
+    email: String!
+    fullName: String!
+    bio: String
+    location: String
+    gender: String
+    dob: String
+    isPrivate: Boolean
+    roles: String
+}
+
+type UserResponse{
+    userName: String!
+    email: String!
+    fullName: String!
+    bio: String
+
+}
+
+# use 'extend' for Query and Mutation
+extend type Query{
+    getUserById(id: ID!): UserEntity
+    getAllUsers: [UserEntity]
+    getUserByUserName(userName: String!): UserEntity
+    getUserByEmail(email: String!): UserEntity
+    getUserByFullName(fullName: String!): UserEntity
+}
+
+extend type Mutation{
+    createUser(input: UserInput!): UserResponse
+    updateUser(id: ID!, input: UserInput!): UserResponse
+    deleteUser(id: ID!): UserResponse
+}
