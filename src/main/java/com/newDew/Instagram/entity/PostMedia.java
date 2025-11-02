@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -41,16 +42,14 @@ public class PostMedia {
 
     @Column(name = "mediaCreated")
     @CreationTimestamp
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "mediaUpdated")
     @UpdateTimestamp
-    private Timestamp updatedAt;
-
+    private LocalDateTime updatedAt;
 
     @Column(name = "mediaDeleted")
-    @Temporal(TemporalType.TIME)
-    private Timestamp deletedAt;
+    private LocalDateTime deletedAt;
 
     @Column(name = "isDeleted")
     private Boolean isDeleted;
